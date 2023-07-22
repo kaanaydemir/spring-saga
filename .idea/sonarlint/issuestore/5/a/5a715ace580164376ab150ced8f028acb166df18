@@ -1,0 +1,19 @@
+
+u
+java:S1450"XRemove the "addressId" field and declare it as a local variable in the relevant methods.(áÊÃÑ8¿­§Ì—1
+z
+java:S1450"XRemove the "productId" field and declare it as a local variable in the relevant methods.(ƒÕõÓúÿÿÿÿ8À­§Ì—1
+y
+java:S1450"WRemove the "quantity" field and declare it as a local variable in the relevant methods.(÷ç¥‚ùÿÿÿÿ8À­§Ì—1
+q
+java:S1450"URemove the "userId" field and declare it as a local variable in the relevant methods.(íÃË8Á­§Ì—1
+O
+java:S1068"-Remove this unused "productId" private field.(ƒÕõÓúÿÿÿÿ8Ï­§Ì—1
+F
+java:S1068"*Remove this unused "userId" private field.(íÃË8Ï­§Ì—1
+J
+java:S1068"-Remove this unused "addressId" private field.(áÊÃÑ8Ï­§Ì—1
+N
+java:S1068",Remove this unused "quantity" private field.(÷ç¥‚ùÿÿÿÿ8Ğ­§Ì—1
+L
+java:S1068"/Remove this unused "orderStatus" private field.(œ¦…À8Ğ­§Ì—1
