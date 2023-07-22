@@ -41,13 +41,13 @@ public class ShipmentAggregate {
 
     @EventSourcingHandler
     public void on(OrderShippedEvent orderShippedEvent) {
-        this.shipmentId =  UUID.randomUUID().toString();
+        this.shipmentId =  orderShippedEvent.getShipmentId();
         this.orderId = orderShippedEvent.getOrderId();
         this.shipmentStatus = orderShippedEvent.getShipmentStatus();
     }
 
     @CommandHandler
-    public ShipmentAggregate(CancelShipmentCommand command) {
+    public void handle(CancelShipmentCommand command) {
         ShipmentCancelledEvent shipmentCancelledEvent = new ShipmentCancelledEvent();
         BeanUtils.copyProperties(command, shipmentCancelledEvent);
         AggregateLifecycle.apply(shipmentCancelledEvent);
@@ -55,9 +55,6 @@ public class ShipmentAggregate {
 
     @EventSourcingHandler
     public void on(ShipmentCancelledEvent shipmentCancelledEvent) {
-        this.shipmentId = shipmentCancelledEvent.getShipmentId();
-        this.orderId = shipmentCancelledEvent.getOrderId();
-        this.paymentId = shipmentCancelledEvent.getPaymentId();
         this.shipmentStatus = shipmentCancelledEvent.getShipmentStatus();
     }
 }

@@ -27,11 +27,6 @@ public class OrderProcessingSaga {
     @Autowired
     private transient QueryGateway queryGateway;
 
-    public OrderProcessingSaga(CommandGateway commandGateway, QueryGateway queryGateway) {
-        this.commandGateway = commandGateway;
-        this.queryGateway = queryGateway;
-    }
-
     public OrderProcessingSaga() {
     }
 
@@ -66,6 +61,7 @@ public class OrderProcessingSaga {
         log.info("PaymentProcessedEvent in Saga for Order Id: {}", event.getOrderId());
         ShipOrderCommand shipOrderCommand;
         try {
+
             shipOrderCommand = ShipOrderCommand.builder()
                     .orderId(event.getOrderId())
                     .shipmentId(UUID.randomUUID().toString())
@@ -82,9 +78,10 @@ public class OrderProcessingSaga {
     @SagaEventHandler(associationProperty = "orderId")
     private void handle(OrderShippedEvent event) {
         try {
-            if (true) {
-                throw new Exception("Error Creating ShipOrderCommand");
-            }
+
+            if(true)
+                throw new Exception();
+
             log.info("OrderShippedEvent in Saga for Order Id: {}", event.getOrderId());
             CompleteOrderCommand completeOrderCommand = CompleteOrderCommand.builder()
                     .orderId(event.getOrderId())

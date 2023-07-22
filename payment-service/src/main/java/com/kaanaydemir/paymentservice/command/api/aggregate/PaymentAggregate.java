@@ -35,8 +35,9 @@ public class PaymentAggregate {
                  validatePaymentCommand.getOrderId(),
                  validatePaymentCommand.getPaymentId());
 
-        PaymentProcessedEvent paymentProcessedEvent = new PaymentProcessedEvent(validatePaymentCommand.getPaymentId(),
-                                                                                validatePaymentCommand.getOrderId()
+        PaymentProcessedEvent paymentProcessedEvent
+                = new PaymentProcessedEvent(
+                validatePaymentCommand.getPaymentId(), validatePaymentCommand.getOrderId()
         );
 
         AggregateLifecycle.apply(paymentProcessedEvent);
@@ -51,19 +52,17 @@ public class PaymentAggregate {
     }
 
     @CommandHandler
-    public PaymentAggregate(CancelPaymentCommand cancelPaymentCommand) {
-        log.info("Executing CancelPaymentCommand for Payment Id: {}", cancelPaymentCommand.getPaymentId());
-        PaymentCancelledEvent event = new PaymentCancelledEvent();
-        BeanUtils.copyProperties(cancelPaymentCommand, event);
-        AggregateLifecycle.apply(event);
-        log.info("PaymentCancelledEvent Applied");
+    public void handle(CancelPaymentCommand cancelPaymentCommand) {
+        PaymentCancelledEvent paymentCancelledEvent
+                = new PaymentCancelledEvent();
+        BeanUtils.copyProperties(cancelPaymentCommand,
+                                 paymentCancelledEvent);
+
+        AggregateLifecycle.apply(paymentCancelledEvent);
     }
 
     @EventSourcingHandler
     public void on(PaymentCancelledEvent event) {
-        this.paymentId = event.getPaymentId();
-        //this.paymentId = UUID.randomUUID().toString();
-        this.orderId = event.getOrderId();
         this.paymentStatus = event.getPaymentStatus();
     }
 }

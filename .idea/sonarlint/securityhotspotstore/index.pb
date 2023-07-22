@@ -30,14 +30,10 @@ korder-service/src/main/java/com/kaanaydemir/orderservice/command/api/controller
 Pcommon-service/src/main/java/com/kaanaydemir/commonservice/model/CardDetail.java,8\5\85890b08b78dde868b0facfac2a3fc75ed730883
 ê
 `common-service/src/main/java/com/kaanaydemir/commonservice/query/GetUserPaymentDetailsQuery.java,9\f\9f722b60ad3b5739e90297502d8ccacf472ed4b8
-Ç
-Ruser-service/src/main/java/com/kaanaydemir/userservice/UserServiceApplication.java,8\e\8eeaaa1234c646c99e8e22ae187798246915e6a3
 Ö
 Uuser-service/src/main/java/com/kaanaydemir/userservice/controller/UserController.java,7\9\79c28449ef225cd3962673c5dcd450f4558c9015
 Ä
 Puser-service/src/main/java/com/kaanaydemir/userservice/config/XStreamConfig.java,7\7\77d52207ea699cd1f966f65a03d6e754f2d5dfee
-Ö
-Uuser-service/src/main/java/com/kaanaydemir/userservice/projection/UserProjection.java,5\5\552484d3976018286401bd47b8a798c71fb35d0f
 é
 ^order-service/src/main/java/com/kaanaydemir/orderservice/command/api/config/XStreamConfig.java,3\2\322faad4252745ec0b1a48c16a673ff9e663dc13
 í
